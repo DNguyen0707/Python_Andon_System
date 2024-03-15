@@ -1,6 +1,6 @@
 import socket
 
-serverIP = '10.1.68.62'
+serverIP = '10.1.40.183'
 serverPort = 6000
 
 #create UDP socket
