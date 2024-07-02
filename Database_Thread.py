@@ -2,7 +2,7 @@ from datetime import datetime   # to get today date
 from webui import webui         # for HTML
 import socket                   # for UDP
 import time                     # time.sleep(seconds)
-import asyncio                  # for threads
+import asyncio                  # for threads and queues
 from UDP_Thread import *        # get definition of "list of Andons"
 import pyodbc
 

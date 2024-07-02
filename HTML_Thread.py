@@ -3,7 +3,7 @@ from datetime import datetime   # to get today date
 from webui import webui         # for HTML
 import socket                   # for UDP
 import time                     # time.sleep(seconds)
-import asyncio                  # for threads
+import asyncio                  # for threads and queues
 from UDP_Thread import *        # get definition of "list of Andons"
 
 def all_events(e : webui.event):
@@ -16,7 +16,7 @@ def exit(e : webui.event):
 	webui.exit()
 
 ######   HTML Thread publishes the current state of the andons   ######     
-def HTML_Thread():
+async def HTML_Thread(queue: asyncio.Queue):
     print("starting HTML Thread")
     # New window
     MyWindow = webui.window()
@@ -39,7 +39,7 @@ def HTML_Thread():
     url = MyWindow.get_url()            # Get URL of the window
 	
     # Get local IP
-    local_ip = getIP()                  #"10.100.100.102" 
+    local_ip ="10.100.100.102"# getIP()                  #"10.100.100.102" 
 	
     # Replace `localhost` with IP
     link = url.replace('localhost', local_ip)
@@ -90,7 +90,7 @@ def HTML_Thread():
                 <tr>
                 <td>{listOfAndons[i]["Name"]}</td>
                 <td style="background-color:{listOfAndons[i]["Status"]}">{listOfAndons[i]["Status"]}</td>
-                <td>{listOfAndons[i]["Down Time"]}</td>
+                <td>{listOfAndons[i]["Date Time"]}</td>
                 </tr>
                 """
             print(i)

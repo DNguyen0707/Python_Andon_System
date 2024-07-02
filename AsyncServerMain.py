@@ -11,10 +11,12 @@ from datetime import datetime   # to get today date
 from webui import webui         # for HTML
 import socket                   # for UDP
 import time                     # time.sleep(seconds)
-import asyncio                  # for threads
+import asyncio                  # for threads and queues
 from UDP_Thread import *        # import all definitions for the UDP_Thread
 from HTML_Thread import *       # import all definitions for the HTML_Thread
 from Database_Thread import *   # import all definitions for the Database_Thread
+
+
 
 def run_UDP_Thread(queue):
     asyncio.run(UDP_Thread(queue))
@@ -22,18 +24,20 @@ def run_UDP_Thread(queue):
 def run_Database_Thread(queue):
     asyncio.run(Database_Thread(queue))
 
+def run_HTML_Thread(queue):
+    asyncio.run(HTML_Thread(queue))
+
 ######   Main function spins off the threads   ######           
 async def main():
     print("starting main")
     queue = asyncio.Queue(maxsize=100)
-
     udp_task = asyncio.to_thread(run_UDP_Thread, queue)
     database_task = asyncio.to_thread(run_Database_Thread, queue)
-    html_task = asyncio.to_thread(HTML_Thread)
+    html_task = asyncio.to_thread(run_HTML_Thread, queue)
 
     asyncio.gather(
-        html_task,
         udp_task,
-        database_task)
+        database_task,
+        html_task)
 
-asyncio.run(main(), debug=True)
+asyncio.run(main())

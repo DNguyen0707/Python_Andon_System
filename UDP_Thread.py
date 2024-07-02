@@ -1,7 +1,7 @@
 import socket                   # for UDP
 from datetime import datetime   # to get today date
 import time                     # time.sleep(seconds)
-import asyncio                  # for threads
+import asyncio                  # for threads and queues
 from webui import webui         # for HTML
 
 andonDictonary = {              # dictionary data type to hold data for each andon
@@ -31,7 +31,7 @@ def getIP():                    # get IP address automatically
     return local_ip
 
 
-serverIP = getIP()    # getIP doesn't work over VPN... gets wrong adapter's IP
+serverIP = "10.100.100.102" #getIP()    # getIP doesn't work over VPN... gets wrong adapter's IP
 serverPort = 60000
 print(serverIP)
 
