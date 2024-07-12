@@ -1,0 +1,5 @@
+webui
+pyodbc
+RPi.GPIO
+board
+neopixel
