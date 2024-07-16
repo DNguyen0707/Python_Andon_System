@@ -4,7 +4,7 @@
 Andon system for Qualitel using python and UDP Client-Server for machinery status. 
  
 ## Connection
-Copy `mainAndon.py` into a Raspberry Pi and run it. Make sure that the Pi is connected to the local network.
+Copy `mainAndon.py` into a Raspberry Pi and run it. Make sure that the Pi is connected to the local network and changed the IP address accordingly in the script.
 
 Run `AsyncServerMain.py` on a host computer to check the status of all the Pi's.
 
