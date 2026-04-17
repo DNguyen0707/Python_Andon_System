@@ -9,3 +9,5 @@ Copy `mainAndon.py` into a Raspberry Pi and run it. Make sure that the Pi is con
 Run `AsyncServerMain.py` on a host computer to check the status of all the Pi's.
 
 Be sure to run `pip install -r requirements.txt` to install all necessary packages
+
+# Note: python3.11 is required for webui (pip install open-webui), turn your directory into a python virtual enviroment with "py -3.11 -m venv ./" before installing. 
