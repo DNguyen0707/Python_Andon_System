@@ -1,5 +1,6 @@
-webui
+open-webui
 pyodbc
 RPi.GPIO
+adafruit-blinka
 board
-neopixel
+adafruit-circuitpython-neopixel
