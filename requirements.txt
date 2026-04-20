@@ -2,5 +2,4 @@ webui2
 pyodbc
 RPi.GPIO
 adafruit-blinka
-board
 rpi_ws281x adafruit-circuitpython-neopixel
