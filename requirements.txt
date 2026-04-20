@@ -1,4 +1,4 @@
-open-webui
+webui2
 pyodbc
 RPi.GPIO
 adafruit-blinka
